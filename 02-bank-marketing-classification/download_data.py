@@ -1,0 +1,1 @@
+import os\nfrom ucimlrepo import fetch_ucirepo\nimport pandas as pd\nos.makedirs("data",exist_ok=True)\nds=fetch_ucirepo(id=222)\ndf=pd.concat([ds.data.features,ds.data.targets],axis=1)\nout="data/dataset.csv"\ndf.to_csv(out,index=False)\nprint(f"Saved {len(df)} rows to {out}")\n
