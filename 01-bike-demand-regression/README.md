@@ -1,34 +1,55 @@
 # Bike Sharing Demand Forecasting
 
-## Goal
-Predict daily/hourly bike rental demand from weather, season and calendar variables. This is a regression problem with a practical capacity-planning use case.
+## 1. Problem
+Predict the total number of bikes rented from calendar, season and weather attributes. This is a supervised regression problem.
 
-## Dataset
-UCI Bike Sharing, dataset ID 275. The repository describes 17,389 records with weather and seasonal information and a regression task.
+## 2. Dataset
+**Official source:** UCI Bike Sharing, dataset ID 275.
 
-## Algorithm
-Linear Regression is used as the baseline. The project deliberately starts with an interpretable model so you can later compare it against Ridge, Random Forest and Gradient Boosting.
+Official page: https://archive.ics.uci.edu/dataset/275/bike+sharing+dataset
 
-## Pipeline
-1. Download the public dataset with `ucimlrepo`.
-2. Remove target leakage columns such as `casual` and `registered`.
-3. Remove the raw date field.
+Exact archive: https://archive.ics.uci.edu/static/public/275/bike+sharing+dataset.zip
+
+UCI reports 17,389 instances and 13 features. The target `cnt` is the total rental count. `casual` and `registered` are removed because they directly compose the target and would create leakage. citeturn0search1
+
+## 3. Pipeline
+
+1. Download the official UCI dataset.
+2. Combine features and target.
+3. Remove leakage fields and raw date representation.
 4. Split into train/test sets.
-5. Fit Linear Regression.
-6. Report MAE, RMSE and R2.
-7. Save the fitted pipeline to `models/model.joblib`.
+5. Standardize numeric features.
+6. Train Linear Regression as an interpretable baseline.
+7. Measure MAE, RMSE and R².
+8. Serialize the complete preprocessing/model pipeline.
+9. Load the artifact and run a real inference example.
 
-## Run in VS Code
-```bash
-git clone https://github.com/sudipta200507/ML-Projects.git
-cd ML-Projects/01-bike-demand-regression
-python -m venv .venv
-.venv\\Scripts\\activate
-pip install -r requirements.txt
-python download_data.py
-python train.py
-python predict.py
-```
+## 4. Why Linear Regression?
 
-## What to learn
-Study the difference between MAE, RMSE and R2. Then replace Linear Regression with Random Forest and Gradient Boosting and compare errors.
+It is intentionally a baseline. It provides a simple reference before trying Ridge, Random Forest or Gradient Boosting.
+
+## 5. Run
+
+`python -m venv .venv`
+
+` .venv\\Scripts\\activate` on Windows.
+
+`pip install -r requirements.txt`
+
+`python download_data.py`
+
+`python train.py`
+
+`python predict.py`
+
+## 6. Outputs
+
+`data/dataset.csv` is generated locally. `models/model.joblib` contains the fitted pipeline. Both are ignored by Git.
+
+## 7. Recruiter review points
+
+This project demonstrates leakage awareness, reproducible preprocessing, regression metrics, model persistence and inference—not just `LinearRegression().fit()`.
+
+## 8. Next experiments
+
+Compare Ridge, Random Forest and Gradient Boosting. Add cross-validation, residual plots, time-aware validation and a FastAPI inference endpoint.
