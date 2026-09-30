@@ -1,0 +1,1 @@
+__pycache__/\n.venv/\nmodels/*.joblib\ndata/*\n!data/.gitkeep\n
