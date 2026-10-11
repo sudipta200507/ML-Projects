@@ -20,7 +20,8 @@ A reproducible machine-learning laboratory covering classical supervised learnin
 - Breast Cancer Wisconsin Diagnostic — UCI ID 17 — https://archive.ics.uci.edu/dataset/17/breast+cancer+wisconsin+diagnostic — direct archive: https://archive.ics.uci.edu/static/public/17/breast+cancer+wisconsin+diagnostic.zip
 - Phishing Websites — UCI ID 327 — https://archive.ics.uci.edu/dataset/327/phishing — direct archive: https://archive.ics.uci.edu/static/public/327/phishing+websites.zip
 
-UCI documents Bike Sharing as a regression dataset with 17,389 instances and Phishing Websites as a classification dataset with 11,055 instances and 30 features. citeturn0search1turn0search3
+
+The UCI repository provides dataset metadata and downloadable files for Bike Sharing, Bank Marketing, Adult, Breast Cancer Wisconsin Diagnostic, and Phishing Websites. Use each linked dataset page as the authoritative source for schema, provenance, and licensing.
 
 ## Engineering workflow
 
